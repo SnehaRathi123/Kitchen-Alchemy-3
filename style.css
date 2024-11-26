@@ -1,0 +1,672 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 70%;
+}
+
+
+h1 {
+    font-size: 50px;
+}
+
+
+.title {
+    font-size: 4rem; /* Large, prominent font size */
+    font-family: 'Pacifico', cursive; /* Use a Google Font for style */
+    color: #e74c3c; /* Vibrant red */
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    text-align: center; /* Center-align the title */
+}
+
+.flavor-picks-title {
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif; /* Modern and clean font */
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(135deg, #27ae60, #2980b9); /* Gradient color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the gradient visible */
+    margin-bottom: 20px;
+}
+
+.search-results-title {
+    font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #3498db; /* Blue for a calm, modern feel */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Capitalize for emphasis */
+    letter-spacing: 2px; /* Adds a polished look */
+}
+
+
+
+
+
+.search {
+    --input-line: #cccccc;
+    --input-text-color: #808080;
+    --input-text-hover-color: transparent;
+    --input-border-color: #808080;
+    --input-border-hover-color: #999999;
+    --input-bg-color: #333333;
+    --search-max-width: 450px;
+    --search-min-width: 350px;
+    --border-radius: 5px;
+    --transition-cubic-bezier: 150ms cubic-bezier(0.4,0,0.2,1);
+    margin: 50px;
+}
+
+.search-box {
+    max-width: var(--search-max-width);
+    min-width: var(--search-min-width);
+    height: 35px;
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius);
+    padding: 5px 15px;
+    background: var(--input-bg-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: var(--transition-cubic-bezier);
+}
+
+.search-box:hover {
+    border-color: var(--input-border-hover-color);
+}
+
+.filter select {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+textarea#commentInput {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.search-field {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: -5px;
+    border: 0;
+}
+
+.input {
+    width: calc(100% - 29px);
+    height: 100%;
+    border: 0;
+    border-color: transparent;
+    font-size: 1rem;
+    padding-right: 0px;
+    color: var(--input-line);
+    background: var(--input-bg-color);
+    border-right: 2px solid var(--input-border-color);
+    outline: none;
+}
+
+.input::-webkit-input-placeholder {
+    color: var(--input-text-color);
+}
+
+.input:focus::-webkit-input-placeholder,
+.input:focus::-moz-input-placeholder,
+.input:focus::-ms-input-placeholder {
+    color: var(--input-text-hover-color);
+}
+
+.search-box-icon {
+    width: 52px;
+    height: 35px;
+    position: absolute;
+    top: -1px;
+    right: -21px;
+    background: transparent;
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    transition: var(--transition-cubic-bezier);
+}
+
+.search-box-icon:hover {
+    background: var(--input-border-color);
+}
+
+.btn-icon-content {
+    width: 52px;
+    height: 35px;
+    top: -6px;
+    right: -21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: var (--border-radius);
+    transition: var(--transition-cubic-bezier);
+    opacity: .4;
+}
+
+.btn-icon-content:hover {
+    opacity: .8;
+}
+
+.search-icon {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 7px;
+    right: 15px;
+}
+
+#results {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#results li {
+    list-style: none;
+    margin: 10px;
+    width: 350px;
+}
+
+.recipe-item {
+    list-style: none;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.recipe-image {
+    text-align: center;
+    padding: 10px;
+}
+
+.recipe-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.recipe-details {
+    padding: 20px;
+}
+
+.recipe-ingredients,
+.recipe-instructions {
+    margin-top: 10px;
+}
+
+.recipe-ingredients ul {
+    padding-left: 20px;
+}
+
+.recipe-actions {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.recipe-actions button {
+    background-color: #ff4757;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.recipe-actions button:hover {
+    background-color: #e84118;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.recipe-rating-comments {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.recipe-rating,
+.recipe-comments {
+    width: 45%;
+}
+
+.star-rating span {
+    font-size: 30px; /* Size of the stars */
+    color: gray; /* Default color */
+    cursor: pointer;
+}
+
+.star-rating span.selected {
+    color: gold; /* Color for selected stars */
+}
+
+
+.bottom-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.home-link{
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.home-link:hover {
+    background-color: #27ae60;
+}
+
+
+
+.favorites-link {
+    background-color: #1abc9c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.favorites-link:hover {
+    background-color: #16a085;
+}
+
+.feedback-link{
+ background-color:#000080;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+
+.feedback-link:hover {
+    background-color: #000080;
+}
+
+
+.popular-recipes ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.help-section {
+    margin-bottom: 40px;
+}
+
+.help-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.help-section p, .help-section ul {
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.help-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+
+nav.navigation {
+    margin-bottom: 20px;
+}
+
+nav.navigation a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+nav.navigation a:hover {
+    text-decoration: underline;
+}
+/* Style for the Remove Selected button */
+#removeSelectedButton {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 20px auto 0; /* Centered and placed at the bottom */
+}
+
+#removeSelectedButton:hover {
+    background-color: #1f618d;
+}
+
+
+ /* Idioms Section Styling */
+#dailyIdiom {
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    color: #2ecc71; /* Fresh green for text */
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px 20px;
+    border: 2px solid #27ae60; /* Green border */
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9); /* Subtle gradient background */
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.5); /* Glowing effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transitions */
+}
+
+/* Hover Effect for Idioms Section */
+#dailyIdiom:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(39, 174, 96, 0.7); /* Enhanced glow */
+}
+
+/* Rotating Text Animation */
+@keyframes rotateIdiom {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Animated Text Inside the Idioms Section */
+#dailyIdiom span {
+    display: inline-block;
+    animation: rotateIdiom 5s infinite ease-in-out; /* Infinite rotation of idioms */
+}
+
+
+
+/* Side Menu Styles */
+.side-menu {
+    height: 100%; /* Full height */
+    width: 0; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Dark background */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* Smooth opening/closing */
+    padding-top: 60px; /* Top padding for content */
+    z-index: 999; /* Ensure on top of other content */
+}
+
+.side-menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block; /* Block layout */
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #575757; /* Highlight on hover */
+}
+
+/* Close Button */
+.side-menu .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    color: white;
+    background-color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Adjust Main Content when menu is open */
+.main {
+    margin-left: 10px;
+    transition: margin-left 0.5s;
+}
+/* Highlight Title */
+.highlight-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700; /* Gold color */
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 8px rgba(255, 215, 0, 0.8); /* Glow effect */
+    animation: pulse 2s infinite; /* Pulsing animation for attention */
+}
+
+/* Pulsing Animation */
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    }
+    100% {
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    }
+}
+
+
+.highlight-recipes li:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Emphasized shadow on hover */
+}
+
+
+/* General Recipe Details Styling */
+.recipe-details {
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    color: #2c3e50; /* Dark slate for text */
+    border-radius: 10px; /* Rounded corners for a polished look */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    margin-bottom: 20px;
+}
+
+/* Section Headings (e.g., Ingredients, Instructions) */
+.recipe-details h4 {
+    font-size: 1.8rem; /* Larger font for section titles */
+    color: #e74c3c; /* Vibrant red for emphasis */
+    margin-bottom: 15px;
+      padding-bottom: 5px;
+    text-transform: uppercase; /* Add a modern touch */
+    letter-spacing: 1px; /* Improve readability */
+}
+
+/* Styling for Ingredients List */
+.recipe-details .recipe-ingredients ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-details .recipe-ingredients ul li {
+    margin-bottom: 10px;
+    padding-left: 40px; /* Space for icons */
+    position: relative;
+    font-size: 1rem; /* Standard text size */
+    line-height: 1.6; /* Improves readability */
+    color: #fff; /* Slightly muted text color */
+}
+
+.recipe-details .recipe-ingredients ul li::before {
+    content: '🍴'; /* Replace with an icon or emoji */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem; /* Larger size for emphasis */
+    color: #fff; /* Green to represent freshness */
+}
+
+/* Styling for Instructions */
+.recipe-details .recipe-instructions p {
+    margin-bottom: 15px;
+    font-size: 1rem; /* Standard size */
+    line-height: 1.8; /* Spaced-out text for readability */
+    color: #fff; /* Dark text color */
+    padding-left: 20px; /* Indent for alignment */
+       padding: 10px 0; /* Padding for better spacing */
+    border-radius: 0; /* No rounded corners */
+}
+
+
+/* Vegetarian Link - Green */
+.vegetarian-link {
+    color: #2ecc71; /* Green */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}.recipe-details ul {
+    list-style: none;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Clean and modern font */
+    font-size: 1rem; /* Standard size for readability */
+    color: #2c3e50; /* Dark slate for text */
+}
+
+.vegetarian-link:hover {
+    color: #27ae60; /* Darker Green on hover */
+}
+
+/* Non-Vegetarian Link - Red */
+.nonvegetarian-link {
+    color: #e74c3c; /* Red */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nonvegetarian-link:hover {
+    color: #c0392b; /* Darker Red on hover */
+}
+
+
+
+
+
+
+

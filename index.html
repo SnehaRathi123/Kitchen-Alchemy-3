@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KITCHEN ALCHEMY</title>
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+      <div class="title">
+    Kitchen Alchemy
+</div>
+
+        
+
+        
+         <!-- Menu Toggle Button -->
+    <div class="menu-toggle" id="menuToggle">
+        ☰
+    </div>
+
+    <!-- Side Menu -->
+    <div id="sideMenu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" id="closeMenu">&times;</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="help.html">Help</a>
+    </div>
+
+        <!-- Navigation Links Section -->
+        <nav class="navigation">
+            <a href="search_results.html?filter=all" class="nav-link">All Recipes</a>
+            <a href="search_results.html?filter=veg" class="vegetarian-link">Vegetarian</a>
+            <a href="search_results.html?filter=nonveg" class="nonvegetarian-link">Non-Vegetarian</a>
+            
+        </nav>
+
+
+       
+        <!-- Search Section -->
+        <div class="search">
+            <div class="search-box">
+                <div class="search-field">
+                    <input placeholder="Search Recipe" class="input" type="text" id="searchInput">
+                    <div class="search-box-icon">
+                        <button class="btn-icon-content" id="searchButton">
+                            <i class="search-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+                                    <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" fill="#fff"></path>
+                                </svg>
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+  <div id="selectedRecipe"></div>
+
+      
+
+<div class="popular-recipes">
+    <h2 class="highlight-title">Trending Tastes</h2>
+    <ul id="popularRecipesList" class="highlight-recipes"></ul>
+</div>
+
+
+        <!-- Recipe Result Section -->
+        <div class="recipe-result">
+            <ul id="results"></ul>
+        </div>
+<div id="dailyIdiom" class="idiom-box"></div>
+
+        <!-- Links at the bottom -->
+        <div class="bottom-links">
+            <a href="dashboard.html" class="favorites-link">View Favorites</a>
+    </div>
+
+
+
+
+    <script src="./script.js"></script>
+
+</body>
+</html>  

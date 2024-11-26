@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Main content of the Recipe Details page -->
+    <div class="main">
+          
+        <h1 id="recipeTitle">Recipe Details</h1>
+
+        <!-- Recipe Details Section -->
+        <div class="recipe-details" id="recipeDetails"></div>
+
+        <!-- Rating and Comments Section -->
+        <div class="recipe-rating-comments">
+            <div class="recipe-rating">
+                <h4>Rate this recipe:</h4>
+                <div id="starRating" class="star-rating">
+                    <span onclick="rateRecipe(1)">&#9733;</span>
+                    <span onclick="rateRecipe(2)">&#9733;</span>
+                    <span onclick="rateRecipe(3)">&#9733;</span>
+                    <span onclick="rateRecipe(4)">&#9733;</span>
+                    <span onclick="rateRecipe(5)">&#9733;</span>
+                </div> 
+                <div id="ratingMessage" class="rating-message"></div> <!-- Message for rating feedback -->
+            </div>
+            <div class="recipe-comments">
+                <h4>Comments:</h4>
+                <textarea id="commentInput" placeholder="Add your comment"></textarea>
+                <div id="commentError" style="color: red; display: none;">Please enter a valid comment.</div>
+                <button onclick="addComment()">Submit Comment</button>
+                <div id="commentsList"></div> 
+            </div>
+        </div>
+
+        <!-- Links at the bottom -->
+        <div class="bottom-links">
+            <a href="index.html" class="home-link">Back to Home</a>
+            <a href="dashboard.html" class="favorites-link">View Favorites</a>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+ <script>
+        // Get recipe label from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const recipeLabel = urlParams.get('label');
+
+        // Find the recipe in the recipes array
+        const recipe = recipes.find(r => r.label === recipeLabel);
+
+        // Display the recipe details if found
+        if (recipe) {
+            document.getElementById('recipeTitle').textContent = recipe.label;
+            document.getElementById('recipeDetails').innerHTML = `
+                <div class="recipe-ingredients">
+                    <h4>Ingredients:</h4>
+                    <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+                </div>
+                <div class="recipe-instructions">
+                    <h4>Instructions:</h4>
+                    ${recipe.instructions.split('\n').map(line => `<p>${line.trim()}</p>`).join('')}
+                </div>
+            `;
+        } else {
+            document.getElementById('recipeDetails').innerHTML = '<p>Recipe not found.</p>';
+        }
+
+// Function to handle star rating
+        function rateRecipe(rating) {
+            // Update the stars based on the selected rating
+            const stars = document.querySelectorAll('#starRating span');
+            stars.forEach((star, index) => {
+                star.classList.toggle('selected', index < rating);
+            });
+
+            // Display a rating message
+            const ratingMessage = document.getElementById('ratingMessage');
+            ratingMessage.textContent = `You rated this recipe ${rating} out of 5 stars.`;
+        }
+
+        // Function to handle comment submission
+        function addComment() {
+            const commentInput = document.getElementById('commentInput');
+            const commentError = document.getElementById('commentError');
+            const commentsList = document.getElementById('commentsList');
+
+            if (commentInput.value.trim() === '') {
+                commentError.style.display = 'block';
+            } else {
+                commentError.style.display = 'none';
+                const comment = document.createElement('p');
+                comment.textContent = commentInput.value;
+                commentsList.appendChild(comment);
+                commentInput.value = ''; // Clear input after submission
+            }
+        }
+    </script>
+</body>
+</html>
+
+
